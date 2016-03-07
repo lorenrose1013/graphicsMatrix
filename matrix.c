@@ -80,7 +80,7 @@ void print_matrix(struct matrix *m) {
   int i, j;
   for (i = 0; i < m->rows; i++){
     for (j = 0; j < m->lastcol; j++){
-      printf("%f ", m->m[i][j]); //i know it takes doubles but this is so much nicer
+      printf("%d ", (int)m->m[i][j]); //i know it takes doubles but this is so much nicer
     }
     printf("\n");
   }
