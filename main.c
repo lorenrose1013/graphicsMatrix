@@ -34,6 +34,13 @@ int main() {
   printf("edges last col: %d\n", edges->lastcol);
   draw_lines(edges, s, c);
 
+  double i;
+  for (i = .5; i < 4; i+=.5){
+    scalar_mult(i, edges);
+    print_matrix(edges);
+    draw_lines(edges, s, c);
+  }
+  save_extension(s, "img.png");
   display(s);
 
   free_matrix( transform );
