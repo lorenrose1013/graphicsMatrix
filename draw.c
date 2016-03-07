@@ -20,10 +20,10 @@ void add_point( struct matrix * points, int x, int y, int z) {
 	if (lastcol >= points->cols){
 		grow_matrix(points, 5);
 	}
-	points->[0][lastcol] = x;
-	points->[1][lastcol] = y;
-	points->[2][lastcol] = z;
-	points->[3][lastcol] = 1;
+	points->m[0][lastcol] = x;
+	points->m[1][lastcol] = y;
+	points->m[2][lastcol] = z;
+	points->m[3][lastcol] = 1;
 }
 
 /*======== void add_edge() ==========
@@ -49,13 +49,13 @@ Go through points 2 at a time and call draw_line to add that line
 to the screen
 ====================*/
 void draw_lines( struct matrix * points, screen s, color c) {
-	int c;
+	int col;
 	int x0, y0, x1, y1;
-	for (c = 0; c < points->lastcol - 1; c++){
-		x0 = points->[0][c];
-		x1 = points->[0][c + 1];
-		y0 = points->[1][c];
-		y1 = points->[1][c + 1];
+	for (col = 0; col < points->lastcol - 1; col++){
+		x0 = points->m[0][col];
+		x1 = points->m[0][col + 1];
+		y0 = points->m[1][col];
+		y1 = points->m[1][col + 1];
 		draw_line(x0, x1, y0, y1, s, c);
 	}
 
