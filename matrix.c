@@ -138,25 +138,22 @@ void matrix_mult(struct matrix *a, struct matrix *b) {
 		//cant multiply
 		return;
 	}
-	//also cant multiply, but it feels right
+	//it works now!!!
 	struct matrix *result;
 	result = new_matrix(a->rows, b->lastcol);
 	result->lastcol = b->lastcol;
 
-
-	int common_num = a->rows;
-	int r, c;
-	int m; 
-
-	for (c = 0; c < b->lastcol; b++){
-		for (r = 0; r < a->lastcol; a++){
-			int sum = 0;
-			for(m = 0; m< common_num; m++){
-				sum += a->m[r][m] * b->m[m][r];
-			}
-			result->m[r][c] = sum;
-		}
+	int r, c, mid;
+	for(r = 0; r < a->rows; r++){
+	  for(c = 0; c < b->lastcol; c++){
+	    int sum = 0;
+	    for (mid = 0; mid < a->lastcol; mid++){
+	      sum += a->m[r][mid] * b->m[mid][c];
+	    }
+	    result->m[r][c] = sum;
+	  }
 	}
+
 	copy_matrix(result, b);
 }
 

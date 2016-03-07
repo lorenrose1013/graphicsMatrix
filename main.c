@@ -46,6 +46,7 @@ int main() {
   matrix_mult(tmp1, tmp2);
 
   print_matrix(tmp2);
+  
 
   free_matrix( transform );
   free_matrix( edges );
